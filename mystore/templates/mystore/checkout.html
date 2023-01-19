@@ -1,0 +1,70 @@
+{% extends 'mystore/store_base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div style = "margin-top: 30px; margin-bottom:30px;" class="super_container">        
+    <!-- Home -->
+
+    <div class="home">
+        <div class="background_image" style="background-image:url({% static 'images/hom_1.jpg'%})"></div>
+    </div>
+
+    <div class = "cart-div">
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-lg-6">
+                    <div class = "box-element" id = "form-wrapper">
+                        <form id = "form">
+                            <div id = "user-info">
+                                <div class = "work-description">
+                                    <hr />
+                                    <p>Your Job Information</p>
+                                    <hr />
+                                    <div class = "form-field">
+                                        <textarea required class = "form-control txta"  name  = "job_description"  placeholder = "Give a Description of what you want e.g. colors, patterns, etc."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <hr>
+                            <input  class = "btn btn-success btn-block" onclick = "submitOrder()" value = "Submit">
+            
+                        </form>
+            
+                    </div>
+                    <br>
+            
+                    <div class = "box-element hidden" id = "payment-info">
+                        <small>Paypal Options</small>
+                        <button id = "make-payment">Make payment</button>
+                    </div>
+                </div>
+            
+                <div class = "col-lg-6">
+                      <div class = "box-element">
+                        <a class  = "btn btn-outline-dark" href = "{% url 'cart' %}">&#x2190; Back to Cart</a>
+                        <hr>
+                        <h3>Order Summary</h3>
+                        <hr>
+                        <div class = "cart-row">
+                            <div id  = "c_item"style = "flex:2"><img class = "row-image" src = "">
+                            </div>
+                            <div id  = "c_item_name"style = "flex:2">product</div>
+                            <div id  = "c_price" style = "flex:1">N4000</div>
+                            <div id  = "c_quan" style = "flex:1"><p>x2</p></div>
+                        </div>                           
+                        <h5 id = "c_c_items">Items: 23</h5>
+                        <h5 id = "c_c_price">Total: N200</h5>            
+                    </div>
+                </div>
+            </div>    
+            
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/checkOut.js' %}"></script>
+
+
+{% endblock %}
+
